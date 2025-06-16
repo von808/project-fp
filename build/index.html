@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('blocks/head.html', {"title": "Main Page"})
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link rel="stylesheet" href="./libs/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
 
   <body>
-    <!-- @@include('blocks/sprite.html') -->
+    
     <div class="wrapper">
-      <!-- @@include('./blocks/header.html') -->
+      
       <main class="main">
         <section class="hero">
           <div class="container">
@@ -41,7 +47,7 @@
                     </div>
                   </div>
                   <div class="mission__image-box">
-                    <img class="mission__image" src="./../images/mission/1.jpg" alt="Изображение Родина Парк" />
+                    <img class="mission__image" src="./images/mission/1.jpg" alt="Изображение Родина Парк" />
                   </div>
                 </div>
                 <div class="mission__item">
@@ -53,7 +59,7 @@
                     </div>
                   </div>
                   <div class="mission__image-box">
-                    <img class="mission__image" src="./../images/mission/2.jpg" alt="Изображение Родина Парк" />
+                    <img class="mission__image" src="./images/mission/2.jpg" alt="Изображение Родина Парк" />
                   </div>
                 </div>
                 <div class="mission__item">
@@ -67,7 +73,7 @@
                     </div>
                   </div>
                   <div class="mission__image-box">
-                    <img class="mission__image" src="./../images/mission/3.jpg" alt="Изображение Родина Парк" />
+                    <img class="mission__image" src="./images/mission/3.jpg" alt="Изображение Родина Парк" />
                   </div>
                 </div>
               </div>
@@ -76,8 +82,8 @@
         </section>
         <div style="width: 100%; height: 400vh"></div>
       </main>
-      <!-- @@include('blocks/footer.html') -->
+      
     </div>
-    <script type="module" src="./../js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

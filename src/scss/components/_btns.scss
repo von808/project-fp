@@ -1,4 +1,25 @@
 @use './../mixins' as *;
 
 .btn {
+  width: 100%;
+  height: fluid(65, 62);
+  padding: 22px 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--white);
+  border-radius: 200px;
+
+  font-weight: 500;
+  font-size: fluid(17, 15);
+  text-align: center;
+  color: var(--black);
+  white-space: nowrap;
+
+  &--accent {
+    background: linear-gradient(135deg, #db5700 0%, #823300 100%);
+    color: var(--white);
+  }
 }
