@@ -368,6 +368,8 @@ gulp.task('server', function () {
       baseDir: destFolder,
     },
     browser: 'google chrome',
+    open: false,
+    // online: false,
     notify: false,
     port: 3000,
     ghostMode: {
