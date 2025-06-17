@@ -29,10 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let documentWidth = document.body.clientWidth; // innerWidth
     let tween;
 
-    let myTimeline = gsap.timeline();
-    // myTimeline.kill();
-
-    tween = myTimeline.to(missionContent, {
+    tween = gsap.to(missionContent, {
       x: `-${missionDuration}px`,
       ease: 'none',
       scrollTrigger: {
@@ -48,17 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         end: () => '+=' + (missionContent.offsetWidth - documentWidth),
       },
     });
-
-    function asd() {
-      if (window.innerWidth <= 991) {
-        myTimeline.kill();
-      }
-    }
-
-    window.addEventListener('resize', () => {
-      asd();
-    });
-    asd();
 
     const observer = new IntersectionObserver(
       (entries) => {
