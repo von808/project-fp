@@ -25,10 +25,10 @@
 }
 
 @font-face {
-  font-family: Prata;
+  font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Prata-Regular.woff2") format("woff2"), url("../fonts/Prata-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -49,10 +49,10 @@
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: Prata;
   font-display: swap;
-  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
-  font-weight: 600;
+  src: url("../fonts/Prata-Regular.woff2") format("woff2"), url("../fonts/Prata-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -581,7 +581,6 @@ a {
 
 .mission {
   height: 100vh;
-  background-color: lightblue;
 }
 
 .mission__inner {
@@ -634,7 +633,6 @@ a {
 .mission__item:nth-child(odd) {
   max-width: 1090px;
   width: calc(100dvw - var(--container-padding) * 2);
-  background-color: red;
 }
 
 .mission__item:nth-child(odd) .mission__image-box {
@@ -647,6 +645,7 @@ a {
   height: 30%;
   -o-object-position: top center;
   object-position: top center;
+  border-radius: 40px 0;
   overflow: hidden;
   -webkit-transition: height 0.3s linear;
   transition: height 0.3s linear;
@@ -662,7 +661,6 @@ a {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
-  background-color: blue;
 }
 
 .mission__item:nth-child(even) .mission__info {
@@ -683,13 +681,16 @@ a {
   width: 30%;
   -o-object-position: left center;
   object-position: left center;
+  border-radius: 0 40px;
   overflow: hidden;
   -webkit-transition: width 0.3s linear;
   transition: width 0.3s linear;
 }
 
-.mission__item._active {
-  background-color: green;
+.mission__item:nth-child(3n+3) .mission__image-box {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
 }
 
 .mission__item._active:nth-child(odd) .mission__image {
@@ -739,7 +740,6 @@ a {
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 40px 0;
   overflow: hidden;
 }
 
@@ -764,6 +764,56 @@ a {
 
   .hero__btns {
     max-width: 100%;
+  }
+
+  .mission {
+    height: 100%;
+  }
+
+  .mission__inner {
+    padding: clamp(6.25rem, 2.8665413534rem + 15.037593985vw, 18.75rem) 0;
+  }
+
+  .mission__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: clamp(6.25rem, 5.0657894737rem + 5.2631578947vw, 10.625rem);
+  }
+
+  .mission__item {
+    max-height: unset;
+  }
+
+  .mission__item:nth-child(odd) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mission__item:nth-child(odd) .mission__image-box {
+    aspect-ratio: 330/330;
+    width: 100%;
+  }
+
+  .mission__item:nth-child(odd) .mission__image {
+    height: 100%;
+  }
+
+  .mission__item:nth-child(even) {
+    max-width: 100%;
+  }
+
+  .mission__item:nth-child(even) .mission__descr {
+    max-width: 100%;
+  }
+
+  .mission__item:nth-child(even) .mission__image-box {
+    aspect-ratio: 690/288;
+  }
+
+  .mission__item:nth-child(even) .mission__image {
+    width: 100%;
   }
 }
 
@@ -790,5 +840,25 @@ a {
 @media (max-width: 576px) {
   .hero__btns {
     grid-template-columns: 1fr;
+  }
+
+  .mission__item:nth-child(odd) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .mission__item:nth-child(even) .mission__image-box {
+    aspect-ratio: 330/330;
+  }
+
+  .mission__item:nth-child(3n+3) .mission__image-box {
+    -webkit-box-ordinal-group: unset;
+    -ms-flex-order: unset;
+    order: unset;
   }
 }

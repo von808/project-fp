@@ -29,38 +29,62 @@ document.addEventListener('DOMContentLoaded', () => {
     let documentWidth = document.body.clientWidth; // innerWidth
     let tween;
 
-    tween = gsap.to(missionContent, {
-      x: `-${missionDuration}px`,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.mission',
-        pin: true,
-        start: 'top top',
-        scrub: 1,
-        snap: {
-          snapTo: 1 / (missionItems.length - 1),
-          inertia: false,
-          duration: { min: 0.1, max: 0.1 },
+    let mm = gsap.matchMedia();
+    mm.add('(min-width: 992px)', () => {
+      tween = gsap.to(missionContent, {
+        x: `-${missionDuration}px`,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.mission',
+          pin: true,
+          start: 'top top',
+          scrub: 1,
+          snap: {
+            snapTo: 1 / (missionItems.length - 1),
+            inertia: false,
+            duration: { min: 0.1, max: 0.1 },
+          },
+          end: () => '+=' + (missionContent.offsetWidth - documentWidth),
         },
-        end: () => '+=' + (missionContent.offsetWidth - documentWidth),
-      },
+      });
+      return () => {
+        tween.kill(true);
+      };
     });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('_active');
-          } else {
-            // entry.target.classList.remove('_active');
-          }
-        });
-      },
-      {
-        threshold: 0.9,
-      }
-    );
+    function resizableObserver() {
+      let breakpoint = window.matchMedia('(min-width: 992px)');
+      console.log(breakpoint.matches);
 
-    document.querySelectorAll('.mission__item').forEach((el) => observer.observe(el));
+      const checker = function () {
+        if (breakpoint.matches) {
+          observ();
+        } else {
+          document.querySelectorAll('.mission__item').forEach((el) => el.classList.remove('_active'));
+        }
+      };
+
+      breakpoint.addEventListener('change', checker);
+      checker();
+    }
+    resizableObserver();
+
+    function observ() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('_active');
+            } else {
+              // entry.target.classList.remove('_active');
+            }
+          });
+        },
+        {
+          threshold: 0.9,
+        }
+      );
+      document.querySelectorAll('.mission__item').forEach((el) => observer.observe(el));
+    }
   }
 });
