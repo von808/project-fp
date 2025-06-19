@@ -133,4 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
       someFunc
     );
   }
+  if (document.querySelector('.advantages')) {
+    const advantageItems = document.querySelectorAll('.advantages__item');
+    window.addEventListener('scroll', () => {
+      advantageItems.forEach((advantageItem, index) => {
+        advantageItem.style.setProperty('--itemIndex', index);
+        const advantageItemRect = advantageItem.getBoundingClientRect();
+        if (advantageItemRect.top) {
+          advantageItem.classList.add('_asd');
+        } else {
+          advantageItem.classList.remove('_asd');
+        }
+      });
+    });
+  }
 });

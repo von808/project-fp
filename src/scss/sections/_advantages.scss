@@ -1,0 +1,136 @@
+@use './../mixins' as *;
+
+.advantages {
+  overflow: visible;
+  &__inner {
+  }
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  &__left {
+    position: sticky;
+    top: 0;
+
+    max-width: 530px;
+    max-height: 100%;
+    width: 100%;
+    height: 100vh;
+    padding: var(--container-padding) 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  &__left-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  &__left-title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 120%;
+    color: #000;
+  }
+  &__left-descr {
+    font-weight: 300;
+    font-size: 16px;
+    color: #000;
+  }
+  &__image-box {
+    width: 100%;
+    height: 180px;
+
+    border-radius: 0 40px;
+    overflow: hidden;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+  &__items {
+    position: relative;
+
+    max-width: 810px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    position: sticky;
+    top: calc(var(--itemIndex) * 10px);
+    z-index: var(--itemIndex);
+    &:not(:first-child) {
+      .advantages__item-content {
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+      }
+    }
+    &._active {
+      background: #f0f0f0;
+    }
+    &._asd {
+      .advantages__item-content {
+      }
+    }
+  }
+  &__item-content {
+    width: 100%;
+    height: 100%;
+    padding: 60px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px;
+
+    background-color: lightcoral;
+
+    // transition: all 0.5s linear;
+  }
+  &__item-image-box {
+    width: 180px;
+    height: 180px;
+
+    display: none;
+    flex-shrink: 0;
+
+    border-radius: 0 40px;
+    overflow: hidden;
+  }
+  &__item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  &__item-title {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 120%;
+    color: #000;
+  }
+  &__item-descr {
+    font-weight: 300;
+    font-size: 15px;
+    color: #000;
+  }
+}
