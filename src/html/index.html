@@ -31,7 +31,18 @@
             <div class="mission__content">@@loop('./elements/mission-item.html', './data/mission-items.json')</div>
           </div>
         </section>
-        
+        <section class="valuables">
+          <div class="container">
+            <div class="valuables__inner">
+              <h2 class="title">Наши ценности</h2>
+              <div class="valuables__content">
+                <div class="valuables__swiper swiper">
+                  <div class="swiper-wrapper">@@loop('./elements/valuables-item.html', './data/valuables-items.json')</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <div style="width: 100%; height: 200vh"></div>
       </main>
       <!-- @@include('blocks/footer.html') -->
@@ -39,6 +50,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
-    <script type="module" src="./../js/main.js"></script>
+    <script src="./libs/swiper/swiper-bundle.min.js"></script>
+    <script src="./../js/main.js"></script>
   </body>
 </html>

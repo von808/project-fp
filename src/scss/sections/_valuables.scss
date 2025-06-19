@@ -1,0 +1,74 @@
+@use './../mixins' as *;
+
+.valuables {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: fluid(100, 50);
+  }
+  &__content {
+  }
+  &__swiper {
+    overflow: visible;
+    .swiper-wrapper {
+      @include lg {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      @include sm {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+    .swiper-slide {
+      width: 390px;
+      height: auto;
+      &:nth-child(5) {
+        @include lg {
+          grid-column: span 2;
+        }
+      }
+      @include lg {
+        width: 100%;
+      }
+    }
+  }
+  &__item {
+    height: 100%;
+    padding: fluid(60, 30);
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--white);
+    border-radius: 0 40px;
+  }
+  &__item-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 60px;
+    @include lg {
+      margin-bottom: 30px;
+    }
+  }
+  &__item-title {
+    display: inline-block;
+    margin-bottom: 30px;
+
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: fluid(28, 20);
+    line-height: 120%;
+    color: #000;
+    @include lg {
+      margin-bottom: 15px;
+    }
+  }
+  &__item-descr {
+    font-weight: 300;
+    font-size: fluid(15, 14);
+    color: #000;
+  }
+}

@@ -46,7 +46,7 @@
       max-height: unset;
     }
 
-    &:nth-child(odd) {
+    &.mission__item--hor {
       max-width: 1090px;
       width: calc(100dvw - (var(--container-padding) * 2));
 
@@ -80,7 +80,7 @@
         }
       }
     }
-    &:nth-child(even) {
+    &.mission__item--ver {
       max-width: 773px;
       width: calc(100dvw - (var(--container-padding) * 2));
 
@@ -133,12 +133,12 @@
     }
     &._active {
       // background-color: green;
-      &:nth-child(odd) {
+      &.mission__item--hor {
         .mission__image {
           height: 100%;
         }
       }
-      &:nth-child(even) {
+      &.mission__item--ver {
         .mission__image {
           width: 100%;
         }

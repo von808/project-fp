@@ -34,7 +34,7 @@
         <section class="mission">
           <h2 class="visually-hidden">mission</h2>
           <div class="mission__inner">
-            <div class="mission__content"><div class="mission__item">
+            <div class="mission__content"><div class="mission__item mission__item--hor">
   <div class="mission__info">
     <h3 class="mission__title">Миссия</h3>
     <div class="mission__descr"><p>Создавать комфорт и безопасность семей, подбирая ключи от современных просторных квартир в лучших районах Москвы</p></div>
@@ -43,7 +43,7 @@
     <img class="mission__image" src="./images/mission/1.jpg" alt="Изображение Родина Парк" />
   </div>
 </div>
-<div class="mission__item">
+<div class="mission__item mission__item--ver">
   <div class="mission__info">
     <h3 class="mission__title">Принцип работы</h3>
     <div class="mission__descr"><p>Получать удовлетворение от своей работы, делая счастливыми семьи от правильной покупки;</p><p>Превращать свои знания и опыт в благодарность наших клиентов</p></div>
@@ -52,7 +52,7 @@
     <img class="mission__image" src="./images/mission/2.jpg" alt="Изображение Родина Парк" />
   </div>
 </div>
-<div class="mission__item">
+<div class="mission__item mission__item--hor">
   <div class="mission__info">
     <h3 class="mission__title">Наша цель</h3>
     <div class="mission__descr"><p>Создавать комфорт и безопасность семей, подбирая ключи от современных просторных квартир в лучших районах Москвы</p></div>
@@ -64,7 +64,63 @@
 </div>
           </div>
         </section>
-        
+        <section class="valuables">
+          <div class="container">
+            <div class="valuables__inner">
+              <h2 class="title">Наши ценности</h2>
+              <div class="valuables__content">
+                <div class="valuables__swiper swiper">
+                  <div class="swiper-wrapper"><div class="swiper-slide">
+  <div class="valuables__item">
+    <img class="valuables__item-icon" src="./images/valuables/agree.svg" alt="Изображение Честность" />
+    <h3 class="valuables__item-title">Честность</h3>
+    <div class="valuables__item-descr">
+      <p>называем вещи своими именами, доводим информацию так, как есть на самом деле, не утаивая и не скрывая «подводные камни»</p>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="valuables__item">
+    <img class="valuables__item-icon" src="./images/valuables/defend.svg" alt="Изображение Надежность" />
+    <h3 class="valuables__item-title">Надежность</h3>
+    <div class="valuables__item-descr">
+      <p>все действия направлены на то, чтоб создать максимальное доверие к нашей компании и к каждому члену нашей сильной команды</p>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="valuables__item">
+    <img class="valuables__item-icon" src="./images/valuables/ascend.svg" alt="Изображение Развитие" />
+    <h3 class="valuables__item-title">Развитие</h3>
+    <div class="valuables__item-descr">
+      <p>мы находимся в непрерывном процессе обучения и наращивания своих компетенций, чтоб предлагать нашим клиентам сервис высочайшего уровня</p>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="valuables__item">
+    <img class="valuables__item-icon" src="./images/valuables/like.svg" alt="Изображение Открытость" />
+    <h3 class="valuables__item-title">Открытость</h3>
+    <div class="valuables__item-descr">
+      <p>мы всегда готовы к диалогу и сотрудничеству, стремимся выстраивать доверительные теплые отношения, адекватно и с благодарностью воспринимаем критику</p>
+    </div>
+  </div>
+</div>
+<div class="swiper-slide">
+  <div class="valuables__item">
+    <img class="valuables__item-icon" src="./images/valuables/succeed.svg" alt="Изображение Экспертность" />
+    <h3 class="valuables__item-title">Экспертность</h3>
+    <div class="valuables__item-descr">
+      <p>мы, как никто, внимательно анализируем и максимально тщательно прорабатываем критерии, необходимые для правильного выбора квартиры для жизни семьи с детьми</p>
+    </div>
+  </div>
+</div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <div style="width: 100%; height: 200vh"></div>
       </main>
       
@@ -72,6 +128,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
-    <script type="module" src="./js/main.js"></script>
+    <script src="./libs/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

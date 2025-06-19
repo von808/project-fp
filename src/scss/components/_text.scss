@@ -1,1 +1,9 @@
 @use './../mixins' as *;
+
+.title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: fluid(48, 28);
+  line-height: 120%;
+  color: var(--black);
+}

@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resizableObserver() {
       let breakpoint = window.matchMedia('(min-width: 992px)');
-      console.log(breakpoint.matches);
+      // console.log(breakpoint.matches);
 
       const checker = function () {
         if (breakpoint.matches) {
@@ -86,5 +86,51 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       document.querySelectorAll('.mission__item').forEach((el) => observer.observe(el));
     }
+  }
+  if (document.querySelector('.swiper')) {
+    const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+      let swiper;
+
+      breakpoint = window.matchMedia(breakpoint);
+
+      const enableSwiper = function (className, settings) {
+        swiper = new Swiper(className, settings);
+
+        if (callback) {
+          callback(swiper);
+        }
+      };
+
+      const checker = function () {
+        if (breakpoint.matches) {
+          return enableSwiper(swiperClass, swiperSettings);
+        } else {
+          if (swiper !== undefined) swiper.destroy(true, true);
+          return;
+        }
+      };
+
+      breakpoint.addEventListener('change', checker);
+      checker();
+    };
+
+    const someFunc = (instance) => {
+      if (instance) {
+        instance.on('slideChange', function (e) {
+          // console.log('*** mySwiper.activeIndex', instance.activeIndex);
+        });
+      }
+    };
+
+    resizableSwiper(
+      '(min-width: 991px)',
+      '.valuables__swiper',
+      {
+        slidesPerView: 'auto',
+        spaceBetween: 30,
+        a11y: false,
+      },
+      someFunc
+    );
   }
 });
