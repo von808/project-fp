@@ -3,16 +3,16 @@
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Light.woff2") format("woff2"), url("../fonts/Inter-Light.woff") format("woff");
-  font-weight: 300;
+  src: url("../fonts/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -27,14 +27,6 @@
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Inter;
-  font-display: swap;
   src: url("../fonts/Inter-Medium.woff2") format("woff2"), url("../fonts/Inter-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -43,8 +35,16 @@
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-Light.woff2") format("woff2"), url("../fonts/Inter-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -510,22 +510,20 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(auto, 530px) minmax(auto, 810px);
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-align: start;
   -ms-flex-align: start;
-  align-items: flex-start;
+  align-items: start;
   gap: 20px;
 }
 
 .advantages__left {
   position: sticky;
   top: 0;
-  max-width: 530px;
   max-height: 100%;
   width: 100%;
   height: 100vh;
@@ -562,14 +560,14 @@ a {
 .advantages__left-title {
   font-family: var(--second-family);
   font-weight: 400;
-  font-size: 48px;
+  font-size: clamp(2.375rem, 2.2058270677rem + 0.7518796992vw, 3rem);
   line-height: 120%;
   color: #000;
 }
 
 .advantages__left-descr {
   font-weight: 300;
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.8411654135rem + 0.1503759398vw, 1rem);
   color: #000;
 }
 
@@ -589,7 +587,6 @@ a {
 
 .advantages__items {
   position: relative;
-  max-width: 810px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -602,7 +599,7 @@ a {
 
 .advantages__item {
   position: sticky;
-  top: calc(var(--itemIndex) * 10px);
+  top: 0;
   z-index: var(--itemIndex);
 }
 
@@ -610,14 +607,14 @@ a {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.advantages__item._active {
-  background: #f0f0f0;
+.advantages__item._active .advantages__item-content {
+  background-color: #f0f0f0;
 }
 
 .advantages__item-content {
   width: 100%;
   height: 100%;
-  padding: 60px;
+  padding: 60px clamp(0rem, -1.015037594rem + 4.5112781955vw, 3.75rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -628,7 +625,7 @@ a {
   -ms-flex-align: start;
   align-items: flex-start;
   gap: 40px;
-  background-color: lightcoral;
+  background-color: var(--page-bg);
 }
 
 .advantages__item-image-box {
@@ -669,7 +666,7 @@ a {
 
 .advantages__item-descr {
   font-weight: 300;
-  font-size: 15px;
+  font-size: clamp(0.875rem, 0.8580827068rem + 0.0751879699vw, 0.9375rem);
   color: #000;
 }
 
@@ -1094,9 +1091,40 @@ a {
   .header__nav {
     display: none;
   }
+
+  .advantages__content {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .advantages__left {
+    position: static;
+    height: auto;
+    padding: 0;
+  }
+
+  .advantages__image-box {
+    display: none;
+  }
+
+  .advantages__item {
+    pointer-events: none;
+  }
+
+  .advantages__item-image-box {
+    display: block;
+  }
 }
 
 @media (max-width: 576px) {
+  .advantages__item-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 60px;
+  }
+
   .hero__btns {
     grid-template-columns: 1fr;
   }

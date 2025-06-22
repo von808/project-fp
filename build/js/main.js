@@ -1,6 +1,25 @@
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ScrollSmoother);
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ScrollSmoother.create({
+  //   smooth: 1,
+  //   // effects: true,
+  // });
+  const lenis = new Lenis({
+    anchors: {
+      duration: 1.8,
+      offset: -150,
+      onComplete: () => {
+        console.log('scrolled to anchor');
+      },
+    },
+  });
+
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
   if (document.querySelector('.burger-btn')) {
     const burgerBtn = document.querySelector('.burger-btn');
     const burgerMenu = document.querySelector('.burger-menu');
@@ -38,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
           trigger: '.mission',
           pin: true,
           start: 'top top',
-          scrub: 1,
+          scrub: true,
           snap: {
             snapTo: 1 / (missionItems.length - 1),
             inertia: false,
@@ -139,11 +158,23 @@ document.addEventListener('DOMContentLoaded', () => {
       advantageItems.forEach((advantageItem, index) => {
         advantageItem.style.setProperty('--itemIndex', index);
         const advantageItemRect = advantageItem.getBoundingClientRect();
-        if (advantageItemRect.top) {
-          advantageItem.classList.add('_asd');
+        if (advantageItemRect.top <= 0) {
+          advantageItem.classList.add('_fixed');
         } else {
-          advantageItem.classList.remove('_asd');
+          advantageItem.classList.remove('_fixed');
         }
+      });
+    });
+
+    advantageItems.forEach((advantageItem) => {
+      advantageItem.addEventListener('mouseenter', () => {
+        const advantagesMainImg = document.querySelector('.advantages__image-box').querySelector('img');
+        let imgSrc = advantageItem.querySelector('img').getAttribute('src');
+
+        advantageItems.forEach((el) => el.classList.remove('_active'));
+
+        advantageItem.classList.add('_active');
+        advantagesMainImg.setAttribute('src', imgSrc);
       });
     });
   }
